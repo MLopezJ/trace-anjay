@@ -6,6 +6,10 @@
 
 ## Install Anjay
 
+```
+git clone git@github.com:AVSystem/Anjay.git
+```
+
 ### Check dependencies
 
 ```
