@@ -10,50 +10,46 @@
 git clone git@github.com:AVSystem/Anjay.git
 ```
 
-### Check dependencies
+### Install dependencies
 
 ```
-// cmake
-sudo apt  install cmake  # version 3.22.1-1ubuntu1.22.04.1
+// Mac OS
+brew install cmake mbedtls openssl
+```
 
-// Python 3
-python3 --version
+### Install AVS Commons
+```
+// Inside Anjay folder
+https://github.com/AVSystem/avs_commons/
 
-// OpenSSL
-sudo apt install libssl-dev
-
-//avs_commons
-git clone https://github.com/AVSystem/avs_commons.git
 cd avs_commons
-
-// /Anjay/avs_commons
-sudo apt install zlib1g-dev
-
 cmake . &&
 make &&
-sudo make install
-cd ..
+make install
 ```
 
 ### Update Submodules
 ```
 // /Anjay
 git submodule update --init
-
-cmake .  -DDTLS_BACKEND="openssl"  && make && sudo make install
 ```
-### Test Anjay
+## Test Anjay: 
 
-* cd `examples/tutorial/BC-Initialization`
-* `cmake . && make`
-* `./anjay-bc-initialization urn:imei:000000000000004`
-* Expected result: `INFO [anjay] [/home/ubuntu/Anjay/src/core/anjay_core.c:292]: Initializing Anjay 3.3.1`
+### Build demo client
 
-## Update example
+```
+cmake . -DDTLS_BACKEND="mbedtls" && make -j
+```
 
-// Uses nosec mode
-// TODO
+### Start tracing with WireShark
 
-## WireShark result
+### Execute demo
+
+```
+./output/bin/demo --endpoint-name urn:imei:000000000000004 --server-uri coap://eu.iot.avsystem.cloud:5683
+```
+
+
+# Results
 
 // TODO
