@@ -43,12 +43,22 @@ cmake . -DDTLS_BACKEND="mbedtls" && make -j
 
 ### Start tracing with WireShark
 
-### Execute demo
+Execute demo
 
 ```
 ./output/bin/demo --endpoint-name urn:imei:000000000000004 --server-uri coap://eu.iot.avsystem.cloud:5683
 ```
 
+Execute Examples
+
+```
+cd examples/tutorial
+// then select the example you want to execute and get into it, for example BC-Initialization
+cd BC-Initialization
+cmake . && make
+// execute build (anjay-bc-initialization in this case) with device name as param (urn:imei:000000000000000)
+./anjay-bc-initialization urn:imei:000000000000000
+```
 
 # Results
 
